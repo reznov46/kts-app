@@ -1,0 +1,42 @@
+POST http://localhost:3000/guns
+Content-Type: application/json
+
+{
+"name": "Pistolet2"
+}
+###
+PATCH http://localhost:3000/guns/6395f0690f9fe00c20db584f
+Content-Type: application/json
+
+{
+    "name": "Pistolet1Edycja"
+}
+
+###
+
+GET http://localhost:3000/guns
+
+###
+
+POST http://localhost:3000/trainings
+Content-Type: application/json
+
+{
+    "name": "Pistolet wtorek",
+    "date": "03/25/2022"
+}
+
+###
+
+POST http://localhost:3000/trainings/addGuns
+Content-Type: application/json
+
+{
+    "gunsToAdd": ["6395f0960f9fe00c20db5851"]
+    ,
+    "id": "6395f9d4b868fdcf38e029d5"
+}
+
+###
+
+GET http://localhost:3000/trainings

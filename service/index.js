@@ -13,7 +13,9 @@ db.once("open", () => console.log("Connected"));
 app.use(express.json());
 
 const gunsRouter = require("./routes/guns");
-app.use("/guns", authenticateToken, gunsRouter);
+app.use("/guns", gunsRouter);
+const trainingRouter = require("./routes/trainings");
+app.use("/trainings", trainingRouter);
 
 app.listen(3000, () => console.log("Server started"));
 

@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -11,7 +11,7 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected"));
 
 app.use(express.json());
-
+app.use(cors({ origin: "http://localhost:4200" }));
 const gunsRouter = require("./routes/guns");
 app.use("/guns", gunsRouter);
 const trainingRouter = require("./routes/trainings");

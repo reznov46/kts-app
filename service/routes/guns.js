@@ -32,7 +32,6 @@ router.delete("/:id", getGun, async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-  res.send(res.gun.name);
 });
 router.patch("/:id", getGun, async (req, res) => {
   if (req.body.name !== null) {

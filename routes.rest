@@ -2,14 +2,14 @@ POST http://localhost:3000/guns
 Content-Type: application/json
 
 {
-"name": "Pistolet2"
+"name": "Pistolet Misia"
 }
 ###
-PATCH http://localhost:3000/guns/6395f0690f9fe00c20db584f
+PATCH http://localhost:3000/guns/639727face674272e9edf83f
 Content-Type: application/json
 
 {
-    "name": "Pistolet1Edycja"
+    "name": "Walther GSP"
 }
 
 ###
@@ -17,26 +17,30 @@ Content-Type: application/json
 GET http://localhost:3000/guns
 
 ###
+DELETE http://localhost:3000/guns/6395fa0bb868fdcf38e029d8
+###
 
 POST http://localhost:3000/trainings
 Content-Type: application/json
 
 {
-    "name": "Pistolet wtorek",
-    "date": "03/25/2022"
+    "name": "Misiu trenuje ",
+    "date": "12/12/2022"
 }
 
 ###
 
-POST http://localhost:3000/trainings/addGuns
+PATCH http://localhost:3000/trainings/addGuns
 Content-Type: application/json
 
 {
-    "gunsToAdd": ["6395f0960f9fe00c20db5851"]
+    "gunsToAdd": ["63972c0252eccb2d71c7a1aa"]
     ,
-    "id": "6395f9d4b868fdcf38e029d5"
+    "id": "63972c1652eccb2d71c7a1af"
 }
 
 ###
 
 GET http://localhost:3000/trainings
+
+###

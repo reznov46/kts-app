@@ -9,30 +9,6 @@ export interface AppConfig {
     menuMode: string;
     scale: number;
 }
-export class AppConfigClass implements AppConfig {
-    inputStyle: string;
-    colorScheme: string;
-    theme: string;
-    ripple: boolean;
-    menuMode: string;
-    scale: number;
-
-    constructor({
-        inputStyle,
-        colorScheme,
-        theme,
-        ripple,
-        menuMode,
-        scale,
-    }: AppConfig) {
-        this.inputStyle = inputStyle;
-        this.colorScheme = colorScheme;
-        this.theme = theme;
-        this.ripple = ripple;
-        this.menuMode = menuMode;
-        this.scale = scale;
-    }
-}
 
 interface LayoutState {
     staticMenuDesktopInactive: boolean;
@@ -128,7 +104,7 @@ export class LayoutService {
             return;
         }
         const config: AppConfig = JSON.parse(configString);
-        this.config = new AppConfigClass(config);
+        this.config = config;
         this.onConfigUpdate();
     }
 }

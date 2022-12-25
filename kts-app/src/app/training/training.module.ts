@@ -15,6 +15,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TrainingGunsComponent } from './training-guns/training-guns.component';
 import { TrainingGeneralComponent } from './training-general/training-general.component';
 import { TrainingParticipantsComponent } from './training-participants/training-participants.component';
+import { CalendarModule } from 'primeng/calendar';
+import { TrainingBaseComponent } from './training-base/training-base.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,7 @@ import { TrainingParticipantsComponent } from './training-participants/training-
         TrainingGunsComponent,
         TrainingGeneralComponent,
         TrainingParticipantsComponent,
+        TrainingBaseComponent,
     ],
     imports: [
         CommonModule,
@@ -35,6 +38,7 @@ import { TrainingParticipantsComponent } from './training-participants/training-
         InputTextModule,
         TrainingRoutingModule,
         TabMenuModule,
+        CalendarModule
     ],
     providers: [TrainingService],
 })

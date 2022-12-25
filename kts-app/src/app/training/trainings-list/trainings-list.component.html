@@ -94,8 +94,9 @@
         </div>
         <div class="field">
             <label for="name">Data</label>
-            <input
-                type="text"
+            <p-calendar [(ngModel)]="training.date" appendTo="body"></p-calendar>
+            <!-- <input
+                type="DATE"
                 pInputText
                 id="name"
                 [(ngModel)]="training.date"
@@ -104,7 +105,7 @@
                 [ngClass]="{
                     'ng-invalid ng-dirty': !training.date
                 }"
-            />
+            /> -->
             <small class="ng-dirty ng-invalid" *ngIf="!training.date"
                 >Data is required.</small
             >

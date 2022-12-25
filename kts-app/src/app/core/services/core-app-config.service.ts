@@ -5,6 +5,7 @@ import { AppConfigService } from 'src/app/layout/service/app-config.service';
     providedIn: 'root',
 })
 export class CoreAppConfigService {
+    public baseUrl: string = 'localhost:3000';
     constructor(private appConfigService: AppConfigService) {}
 
     public loadConfig() {
@@ -20,5 +21,9 @@ export class CoreAppConfigService {
             );
             resolve(true);
         });
+    }
+
+    public getBaseUrl(): string {
+        return `http://localhost:3000`;
     }
 }

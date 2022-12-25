@@ -1,0 +1,39 @@
+<div class="card">
+    <span *ngIf="!gun">There is not gun data to display</span>
+    <form #gunForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid p-formgrid grid" *ngIf="gun">
+            <div class="field col-12 md:col-6">
+                <label htmlFor="gunName">Name</label>
+                <input
+                    pInputText
+                    id="gunName"
+                    name="gunName"
+                    type="text"
+                    required
+                    [(ngModel)]="gun.name"
+                />
+            </div>
+            <div class="col-6 col-offset-3">
+                <span class="p-buttonset">
+                    <button
+                        pButton
+                        pRipple
+                        label="Save"
+                        icon="pi pi-check"
+                        class="p-button-success"
+                        type="submit"
+                        [disabled]="!gunForm.form.valid"
+                    ></button>
+                    <button
+                        pButton
+                        pRipple
+                        label="Abort"
+                        icon="pi pi-trash"
+                        class="p-button-warning"
+                        [routerLink]="['/magazine']"
+                    ></button>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

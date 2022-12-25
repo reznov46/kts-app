@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Gun = require("../models/gun");
 router.get("/", async (req, res) => {
+  console.log('guns');
   try {
     const guns = await Gun.find();
     res.json(guns);
@@ -34,6 +35,7 @@ router.delete("/:id", getGun, async (req, res) => {
   }
 });
 router.patch("/:id", getGun, async (req, res) => {
+  console.log('gun');
   if (req.body.name !== null) {
     res.gun.name = req.body.name;
   }

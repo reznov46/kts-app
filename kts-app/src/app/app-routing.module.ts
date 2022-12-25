@@ -26,6 +26,20 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                                 ),
                         },
                         {
+                            path: 'users',
+                            loadChildren: () =>
+                                import('./user/user.module').then(
+                                    (m) => m.UserModule
+                                ),
+                        },
+                        {
+                            path: 'trainings',
+                            loadChildren: () =>
+                                import('./training/training.module').then(
+                                    (m) => m.TrainingModule
+                                ),
+                        },
+                        {
                             path: 'uikit',
                             loadChildren: () =>
                                 import(
@@ -77,7 +91,7 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                         ),
                 },
                 { path: 'notfound', component: NotfoundComponent },
-                { path: '**', redirectTo: '/notfound' },
+                // { path: '**', redirectTo: '/notfound' },
             ],
             {
                 scrollPositionRestoration: 'enabled',

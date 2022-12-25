@@ -16,6 +16,10 @@ const gunsRouter = require("./routes/guns");
 app.use("/guns", gunsRouter);
 const trainingRouter = require("./routes/trainings");
 app.use("/trainings", trainingRouter);
+const ammoRouter = require("./routes/ammo");
+app.use('/ammo', ammoRouter)
+const usersRouter = require("./routes/users");
+app.use("/users", usersRouter)
 
 app.listen(3000, () => console.log("Server started"));
 

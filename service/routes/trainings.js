@@ -1,10 +1,12 @@
 const express = require("express");
 const Training = require("../models/training");
 const Gun = require("../models/gun");
+const Participant = require("../models/participant");
+const User = require("../models/user");
 const router = express.Router();
 router.get("/", async (req, res) => {
   try {
-    const training = await Training.find()
+    const training = await Training.find();
     res.json(training);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -25,12 +27,52 @@ router.post("/", async (req, res) => {
 });
 
 router.patch("/addGuns", getTraining, async (req, res) => {
-  await res.training.gunsUsed.push(await Gun.findById(req.body.gunsToAdd[0]));
+  req.body.gunsToAdd.forEach(async (gun) => {
+    await res.training.gunsToAdd.push(await Gun.findById(gun._id));
+  });
   try {
     const updatedTraining = await res.training.save();
     res.json(updatedTraining);
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+});
+
+router.patch("/addParticipants", getTraining, async (req, res) => {
+  req.body.participantsToAdd.forEach(async (participant) => {
+    const newParticipant = new Participant({
+      user: await User.findById(participant._id),
+      ammoUsed: [],
+    });
+    participant.ammoUsed.forEeach((ammo) => {
+      newParticipant.ammoUsed.push({
+        caliber: ammo.caliber,
+        amount: ammo.amount,
+      });
+    });
+    await res.training.participants.push();
+  });
+  try {
+    const updatedTraining = await res.training.save();
+    res.json(updatedTraining);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.get("/:id/:populate", async (req, res) => {
+  const trainigId = req.params.id != null ? req.params.id : req.body.id;
+  let training = null;
+  try {
+    training = await Training.findOne({ _id: trainigId })
+      .populate("gunsUsed")
+      .populate("participants");
+    if (training == null) {
+      return res.status(404).json({ message: "Cannot find training" });
+    }
+    res.json(training);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -64,6 +106,7 @@ async function getTraining(req, res, next) {
   let training = null;
   try {
     training = await Training.findOne({ _id: trainigId });
+
     if (training == null) {
       return res.status(404).json({ message: "Cannot find training" });
     }

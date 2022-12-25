@@ -17,6 +17,8 @@ Content-Type: application/json
 GET http://localhost:3000/guns
 
 ###
+GET http://localhost:3000/guns/639727f7ce674272e9edf83d
+###
 DELETE http://localhost:3000/guns/6395fa0bb868fdcf38e029d8
 ###
 
@@ -42,5 +44,13 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/trainings
+
+###
+
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/trainings/639728cb52eccb2d71c7a19d/true
 
 ###

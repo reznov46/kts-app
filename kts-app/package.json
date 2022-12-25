@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~14.0.0",
     "@angular/router": "~14.0.0",
     "chart.js": "^3.3.2",
+    "mongoose": "^6.8.1",
     "primeflex": "^3.2.0",
     "primeicons": "6.0.1",
     "primeng": "14.2.2",

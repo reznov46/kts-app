@@ -51,6 +51,6 @@ GET http://localhost:3000/users
 
 ###
 
-GET http://localhost:3000/trainings/639728cb52eccb2d71c7a19d/true
+GET http://localhost:3000/trainings/63a866b11f32ca9f6b3da17d
 
 ###
